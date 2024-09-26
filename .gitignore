@@ -1,0 +1,6 @@
+## Xcelium/SimVision 
+.simvision/
+waves.shm/
+xcelium.d/
+xrun.*
+xmvhdl_cg.log
