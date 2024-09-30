@@ -46,7 +46,7 @@ architecture behavioral of Memory is
     --    0x0040000c  0x014b4825  or $9,$10,$11     7  or  $t1, $t2, $t3
     --    ...
     ----------------------------------------------------------------------------
-    function MemoryLoad(imageFileName: in string) return Memory is
+    impure function MemoryLoad(imageFileName: in string) return Memory is
         
         file imageFile : TEXT open READ_MODE is imageFileName;
         variable memoryArray: Memory;

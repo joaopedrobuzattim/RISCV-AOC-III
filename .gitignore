@@ -4,3 +4,7 @@ waves.shm/
 xcelium.d/
 xrun.*
 xmvhdl_cg.log
+
+## GHDL/GTK 
+*.cf
+*.ghw
