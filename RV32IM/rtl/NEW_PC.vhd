@@ -112,7 +112,7 @@ process (uins, signExtended_i, signExtended_u, signExtended_s, signExtended_b, s
                 new_pc <= STD_LOGIC_VECTOR(UNSIGNED(pc) + UNSIGNED(signExtended_j));
             -- JALR use I-type format    
             when JALR => 
-                new_pc <= STD_LOGIC_VECTOR(UNSIGNED(rs1)  + UNSIGNED(signExtended_i));
+                new_pc <= STD_LOGIC_VECTOR( (UNSIGNED(rs1) + UNSIGNED(signExtended_i)) and ( not to_unsigned(1, 32) ) );
             -- PC + 4 default case    
             when others => -- R,U,I types
                 new_pc <=  incrementedPC;

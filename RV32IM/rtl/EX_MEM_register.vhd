@@ -23,13 +23,13 @@ entity EX_MEM_Register is
         pc_mem      : out std_logic_vector (LENGTH-1 downto 0);
         resultaluex : in  std_logic_vector (LENGTH-1 downto 0);
         resultalumem : out std_logic_vector (LENGTH-1 downto 0);
-	data_store_ex: in  std_logic_vector (LENGTH-1 downto 0);
-	data_store_mem: out  std_logic_vector (LENGTH-1 downto 0);
+	    data_store_ex: in  std_logic_vector (LENGTH-1 downto 0);
+	    data_store_mem: out  std_logic_vector (LENGTH-1 downto 0);
         rd_ex       : in std_logic_vector(4 downto 0);
         rd_mem      : out std_logic_vector(4 downto 0);
         uins_ex     : in  Microinstruction;
         uins_mem    : out Microinstruction;
-	reset_predict : in std_logic;
+	    reset_predict : in std_logic;
         predict_ex  : in std_logic;
         predict_mem  : out std_logic
     );

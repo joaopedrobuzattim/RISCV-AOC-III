@@ -248,7 +248,7 @@ end process;
         
 -- PC_calculus calcul the next pc in the ex stage if there is a J and B type instruction.    
     PC_CALCULUS:  entity work.NEW_PC
-    port map(  rs1             => readData1,
+    port map(  rs1             => data_1_ex,
                pc              => pc_ex,
                instruction     => instruction_ex,
                new_pc          => pc_cal,
