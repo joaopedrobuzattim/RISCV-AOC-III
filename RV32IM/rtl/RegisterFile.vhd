@@ -77,6 +77,7 @@ begin
         if reset = '1' then
             for i in 0 to 31 loop
                 reg(i) <= (others=>'0');
+                reg(2) <= x"00800000";  -- Stack Pointer
                 --reg(i) <= CONV_STD_LOGIC_VECTOR(i, 32);
             end loop;
         
