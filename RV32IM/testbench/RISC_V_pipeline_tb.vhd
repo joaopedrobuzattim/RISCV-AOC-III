@@ -10,12 +10,12 @@ architecture behavioral of RISC_V_pipeline_tb is
     constant RARS_INSTRUCTION_OFFSET    : std_logic_vector(31 downto 0) := x"00400000"; -- begining addresse of instruction in risc v
     constant RARS_DATA_OFFSET           : std_logic_vector(31 downto 0) := x"10010000"; -- begining addresse of data in risc v
 
-    signal clock, clock_register        : std_logic := '0';
+    signal clock                        : std_logic := '0';
     signal reset                        : std_logic;
     signal data_out_mem                 : std_logic_vector (31 downto 0);
 
     -- Instruction Memory Signals
-    signal inst_mem_addr   : std_logic_vector (31 downto 0);
+    signal inst_mem_addr     : std_logic_vector (31 downto 0);
     signal inst_mem_o_data   : std_logic_vector (31 downto 0);
     signal inst_mem_i_data   : std_logic_vector (31 downto 0);
 
@@ -26,8 +26,7 @@ architecture behavioral of RISC_V_pipeline_tb is
     signal data_mem_wr      : std_logic;
 begin
 
-    clock <= not clock after 5 ns;
-    clock_register <= not clock_register after 2.5 ns;
+    clock <= not clock after 2.5 ns;
     reset <= '1', '0' after 7 ns;
 
 
@@ -62,10 +61,9 @@ begin
 
     RISCV_PIPELINE_TOP:    entity work.RISC_V_pipeline_top
         port map (
-            clock           => clock,
-            reset           => reset,
-            clock_register  => clock_register,
-
+            clk             => clock,
+            rst_n           => reset,
+            
             -- Instruction Memory Ports         
             inst_mem_addr_o =>   inst_mem_addr,
             inst_mem_data_i =>   inst_mem_o_data,

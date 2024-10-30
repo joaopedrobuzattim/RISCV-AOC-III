@@ -15,7 +15,7 @@ generic (
     );
 port (
     
-    clock, clock_register, reset    : in std_logic;
+    clk, rst_n    : in std_logic;
 
     -- Instruction Memory Ports
     inst_mem_addr_o    : out std_logic_vector (31 downto 0);
@@ -35,22 +35,33 @@ end RISC_V_pipeline_top;
 architecture structural of RISC_V_pipeline_top is
     signal instruction_id : std_logic_vector(31 downto 0);
     signal uins_id : Microinstruction;
-    
+    signal clk_div : std_logic;    
+
 begin
+
+    divisor: process(clk, rst_n) begin
+	if rst_n = '1' then clk_div <= '0';
+        elsif (clk'EVENT) and (clk='1') then
+             if clk_div = '0' then clk_div <= '1';
+             else clk_div <= '0';
+             end if;        
+        end if;
+    end process divisor;
+            
 
     CONTROL_PATH: entity work.ControlPath(behavioral)
          port map (
-             clock          => clock,
-             reset          => reset,
+             clock          => clk_div,
+             reset          => rst_n,
              instruction    => instruction_id,
              uins           => uins_id
          );
 
     DATA_PATH: entity work.DataPath(structural)
         port map (
-            clock            => clock,
-            clock_register   => clock_register,
-            reset            => reset,
+            clock            => clk_div,
+            clock_register   => clk,
+            reset            => rst_n,
             instruction_id   => instruction_id,
             uins_id          => uins_id,
             inst_mem_addr_o  => inst_mem_addr_o,
