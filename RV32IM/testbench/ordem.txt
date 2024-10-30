@@ -1,3 +1,3 @@
-"Util_package.vhd RISC_V_package.vhd ALU.vhd RegisterNbits.vhd Branch_predictor.vhd ControlPath.vhd MUX_ALU.vhd MUX_LOAD.vhd MUX_STORE.vhd NEW_PC.vhd RegisterFile.vhd EX_MEM_register.vhd Forward_unit.vhd Hazard_Unit.vhd ID_EX_register.vhd IF_ID_register.vhd MEM_WB_register.vhd MUL_DIV_UNIT.vhd MUL_DIV_UNIT_tb.vhd Stall_unit.vhd DataPath.vhd RISC_V_pipeline_top.vhd"
+"Util_package.vhd RISC_V_package.vhd ALU.vhd RegisterNbits.vhd Branch_predictor.vhd ControlPath.vhd MUX_ALU.vhd MUX_LOAD.vhd MUX_STORE.vhd NEW_PC.vhd RegisterFile.vhd EX_MEM_register.vhd Forward_unit.vhd Hazard_Unit.vhd ID_EX_register.vhd IF_ID_register.vhd MEM_WB_register.vhd MUL_DIV_UNIT.vhd Stall_unit.vhd DataPath.vhd RISC_V_pipeline_top.vhd"
 
 
