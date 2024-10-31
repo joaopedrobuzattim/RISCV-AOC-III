@@ -24,6 +24,28 @@ architecture behavioral of RISC_V_pipeline_tb is
     signal data_mem_o_data  : std_logic_vector (31 downto 0);
     signal data_mem_i_data  : std_logic_vector (31 downto 0);
     signal data_mem_wr      : std_logic;
+
+component RISC_V_pipeline_top
+    port (
+        -- Clock and Reset
+        clk              : in  std_logic;
+        rst_n            : in  std_logic;
+        
+        -- Instruction Memory Ports
+        inst_mem_addr_o  : out std_logic_vector(31 downto 0);  
+        inst_mem_data_i  : in  std_logic_vector(31 downto 0);  
+        inst_mem_data_o  : out std_logic_vector(31 downto 0); 
+        
+        -- Data Memory Ports
+        data_mem_addr_o  : out std_logic_vector(31 downto 0);  
+        data_mem_data_i  : in  std_logic_vector(31 downto 0);  
+        data_mem_data_o  : out std_logic_vector(31 downto 0);  
+        data_mem_wr_o    : out std_logic
+    );
+
+end component;
+
+
 begin
 
     clock <= not clock after 2.5 ns;
